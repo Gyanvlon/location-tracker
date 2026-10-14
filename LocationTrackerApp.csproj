@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Android is the configured and validated assignment target. -->
+    <TargetFramework>net9.0-android35.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <!-- Nullable checks catch missing references; common namespaces use SDK implicit imports. -->
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- Exclude generated build output and submission artifacts from source compilation. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);obj/**;bin/**;deliverables/**</DefaultItemExcludes>
+    <ApplicationId>com.companyname.locationtrackerapp</ApplicationId>
+    <ApplicationTitle>Location Tracker</ApplicationTitle>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion>23.0</SupportedOSPlatformVersion>
+    <!-- Include assemblies so the APK runs without an IDE fast deployment session. -->
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- MVVM source generators, SQLite persistence and native map controls. -->
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+    <!-- Native SQLite with support for Android 16 KB memory pages. -->
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="9.0.0" />
+  </ItemGroup>
+</Project>

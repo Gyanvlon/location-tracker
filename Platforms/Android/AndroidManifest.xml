@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <application android:allowBackup="false" android:icon="@drawable/icon" android:roundIcon="@drawable/icon" android:supportsRtl="true">
+    <!-- Authorize this package and signing certificate in the Maps SDK for Android project. -->
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCXqtJoH_gmYE6eT8ufYxa1m4w1Y1vnFaI" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+  </application>
+  <!-- Network access loads map tiles; coordinates remain in the private local database. -->
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <!-- Request foreground permission at runtime before starting the location listener. -->
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+</manifest>

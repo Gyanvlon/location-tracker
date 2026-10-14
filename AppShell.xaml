@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell x:Class="LocationTrackerApp.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:LocationTrackerApp"
+       Shell.FlyoutBehavior="Disabled"
+       Shell.BackgroundColor="#512BD4" Shell.TitleColor="White"
+       Shell.ForegroundColor="White" Title="Location Tracker">
+    <!-- The shell resolves MainPage and its constructor dependencies through MAUI services. -->
+    <ShellContent Title="MainView" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+</Shell>

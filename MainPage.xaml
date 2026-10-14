@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LocationTrackerApp"
+             x:DataType="local:MainViewModel"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="LocationTrackerApp.MainPage" Title="MainView">
+    <!-- The map fills available space; the status and actions keep their natural height. -->
+    <Grid RowDefinitions="*,Auto" BackgroundColor="White">
+        <!-- HeatMapRenderer extends this native MAUI Maps component with density circles. -->
+        <maps:Map x:Name="map" MapType="Street" />
+        <VerticalStackLayout Grid.Row="1" Padding="12,8" Spacing="6">
+            <!-- Counts come from SQLite; the legend explains relative recorded density. -->
+            <Grid ColumnDefinitions="*,Auto">
+                <Label x:Name="SampleCount" Text="0 saved locations" TextColor="#222222" />
+                <HorizontalStackLayout Grid.Column="1" Spacing="4">
+                    <Label Text="● Low" TextColor="Blue" />
+                    <Label Text="→" TextColor="#444444" />
+                    <Label Text="High ●" TextColor="Red" />
+                </HorizontalStackLayout>
+            </Grid>
+            <!-- Compiled bindings report GPS freshness, recording progress and errors. -->
+            <Label Text="{Binding Status}" FontSize="12" TextColor="#444444" />
+            <!-- Tracking is a view-model command; demo and clear use guarded event handlers. -->
+            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="8">
+                <Button Text="{Binding TrackingButtonText}" Command="{Binding ToggleTrackingCommand}"
+                        BackgroundColor="#512BD4" TextColor="White" />
+                <Button x:Name="DemoButton" Grid.Column="1" Text="Demo" Clicked="OnDemoClicked" />
+                <Button x:Name="ClearButton" Grid.Column="2" Text="Clear" Clicked="OnClearClicked" />
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
